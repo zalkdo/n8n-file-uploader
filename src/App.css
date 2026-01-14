@@ -1,0 +1,150 @@
+/* App.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+}
+
+.upload-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.drop-zone {
+  border: 2px dashed #e0e0e0;
+  border-radius: 12px;
+  padding: 40px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.drop-zone:hover {
+  border-color: #ff6b6b; /* n8n 브랜드 컬러와 유사한 색상 */
+  background-color: #fff5f5;
+}
+
+.drop-zone.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.file-name {
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.support-text {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.upload-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.upload-btn:hover {
+  background-color: #e55a5a;
+}
+
+.upload-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* 로딩 애니메이션 */
+.loading-bar {
+  height: 4px;
+  width: 100%;
+  background-color: #f3f3f3;
+  margin-top: 20px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  left: -50%;
+  height: 100%;
+  width: 50%;
+  background-color: #ff6b6b;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
