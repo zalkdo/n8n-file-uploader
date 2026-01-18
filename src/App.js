@@ -8,7 +8,7 @@ function App() {
   const fileInputRef = useRef(null);
 
   // n8n Webhook URL (사용자가 제공한 주소)
-  const WEBHOOK_URL = 'http://192.168.6.188:5678/webhook-test/upload';
+  const WEBHOOK_URL = 'http://localhost:5678/webhook-test/upload';
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -60,7 +60,7 @@ function App() {
     const formData = new FormData();
     // n8n Binary Data 노드에서 'data'라는 속성 이름을 주로 사용하지만, 
     // 여기서는 일반적인 'file'을 사용합니다. n8n 설정에 맞게 변경 가능합니다.
-    formData.append('file', file); 
+    formData.append('data', file); 
 
     // 2. 파일 정보(Payload) 추가 (이 부분이 추가된 내용입니다)
     // n8n의 Webhook 노드 출력 창의 'JSON' 탭에서 이 값들을 확인할 수 있습니다.
