@@ -7,8 +7,8 @@ function App() {
   const [message, setMessage] = useState('');
   const fileInputRef = useRef(null);
 
-  // n8n Webhook URL (사용자가 제공한 주소)
-  const WEBHOOK_URL = 'http://localhost:5678/webhook-test/upload';
+  // n8n Webhook URL (환경 변수에서 읽어옵니다)
+  const WEBHOOK_URL = process.env.REACT_APP_WEBHOOK_URL || 'http://localhost:5678/webhook-test/upload';
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
