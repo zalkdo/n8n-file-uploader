@@ -62,6 +62,18 @@ function App() {
     // 여기서는 일반적인 'file'을 사용합니다. n8n 설정에 맞게 변경 가능합니다.
     formData.append('file', file); 
 
+    // 2. 파일 정보(Payload) 추가 (이 부분이 추가된 내용입니다)
+    // n8n의 Webhook 노드 출력 창의 'JSON' 탭에서 이 값들을 확인할 수 있습니다.
+    formData.append('fileName', file.name);           // 파일명 (예: data.csv)
+    formData.append('fileSize', file.size);           // 파일 크기 (Byte 단위)
+    formData.append('fileType', file.type);           // MIME 타입 (예: text/csv)
+    formData.append('lastModified', file.lastModified); // 마지막 수정 시간(Timestamp)
+    formData.append('uploadedAt', new Date().toISOString()); // 업로드 시점
+
+    // 만약 사용자 ID나 특정 태그를 같이 보내고 싶다면 이렇게 추가하면 됩니다.
+    // formData.append('userId', 'user_1234'); 
+    // formData.append('tag', 'invoice_data');
+    
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
